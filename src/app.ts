@@ -1,0 +1,10 @@
+import express, { Request, Response } from 'express';
+import 'dotenv/config';
+export const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Blog Back-End Server is running!');
+});
