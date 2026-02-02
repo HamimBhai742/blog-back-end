@@ -1,7 +1,7 @@
 import bcryptjs from 'bcryptjs';
 import { ENV } from '../../config/env';
 import { prisma } from '../../config/prisma';
-const userRegister = async (payload: any) => {
+const register = async (payload: any) => {
   const hashedPass = await bcryptjs.hash(payload.password, ENV.SALT);
   payload.password = hashedPass;
 
@@ -10,5 +10,5 @@ const userRegister = async (payload: any) => {
 };
 
 export const authServices = {
-  userRegister,
+  register,
 };
